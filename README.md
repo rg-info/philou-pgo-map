@@ -32,7 +32,7 @@ If successfully build, you will have the following message in the console:
 In a Git bach console at the root of the project, type the following to run the application:
 
 ```bash
-./mvnw clean package
+java -jar target/philou*.jar
 ```
 
 Once the application started the information retreived from the PokemonGo++ application will be printed in the console.
