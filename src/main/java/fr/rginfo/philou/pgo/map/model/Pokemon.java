@@ -69,6 +69,30 @@ public class Pokemon extends AbstractPokemon {
 
   @Override
   public String toString() {
-    return super.toString() + " (" + this.getLat() + ":" + this.getLon() + ")";
+    return super.toString() + " (" + this.getLat() + ":" + this.getLon() + ") IV : " + this.getIv();
+  }
+
+  public Integer getIv() {
+    return (this.getAttack() + this.getDefense() + this.getStamina()) * 100 / 45;
+  }
+
+  private Integer getAttack() {
+    return this.getIntegerValueFromId(8);
+  }
+
+  private Integer getDefense() {
+    return this.getIntegerValueFromId(9);
+  }
+
+  private Integer getStamina() {
+    return this.getIntegerValueFromId(10);
+  }
+
+  private Integer getIntegerValueFromId(int index) {
+    if (index >= this.spawn_id.length()) {
+      return 0;
+    }
+
+    return Integer.parseInt(String.valueOf(this.spawn_id.charAt(index)), 16);
   }
 }
