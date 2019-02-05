@@ -6,7 +6,7 @@ public class Pokestop extends Node {
   private Double latitude;
   private Double longitude;
   private Long last_modified;
-  private Integer lure_expiration;
+  private Long lure_expiration;
   private Integer active_pokemon_id;
 
   public String getPokestop_id() {
@@ -49,11 +49,11 @@ public class Pokestop extends Node {
     this.last_modified = last_modified;
   }
 
-  public Integer getLure_expiration() {
+  public Long getLure_expiration() {
     return lure_expiration;
   }
 
-  public void setLure_expiration(Integer lure_expiration) {
+  public void setLure_expiration(Long lure_expiration) {
     this.lure_expiration = lure_expiration;
   }
 
