@@ -69,7 +69,7 @@ public class Pokemon extends AbstractPokemon {
 
   @Override
   public String toString() {
-    return super.toString() + " (" + this.getLat() + ":" + this.getLon() + ") IV : " + this.getIv();
+    return super.toString() + " (" + this.getLat() + ":" + this.getLon() + ") spawn_id : " + this.getSpawn_id();
   }
 
   public Integer getIv() {
