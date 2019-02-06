@@ -1,20 +1,21 @@
 package fr.rginfo.philou.pgo.map.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PokemonGoData {
   private String uuid;
   private String validation1;
   private Double timestamp;
-  private List<Pokestop> pokestops;
+  private List<Pokestop> pokestops = new ArrayList<>();
   private String latitude;
   private String longitude;
   private Integer submit_version;
-  private List<Spawnpoint> spawnpoints;
+  private List<Spawnpoint> spawnpoints = new ArrayList<>();
   private Integer trainerlvl;
-  private List<Pokemon> pokemon;
-  private List<NearbyPokemon> nearby_pokemon;
-  private List<Gym> gyms;
+  private List<Pokemon> pokemon = new ArrayList<>();
+  private List<NearbyPokemon> nearby_pokemon = new ArrayList<>();
+  private List<Gym> gyms = new ArrayList<>();
 
   public String getUuid() {
     return uuid;
