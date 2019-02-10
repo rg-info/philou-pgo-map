@@ -15,11 +15,9 @@ public class PokePlusPlusController {
   @PostMapping("webhook")
   public void pokePlusPlusWebHook(@RequestBody PokemonGoData request) {
     logger.info("Receiving request from uuid: " + request.getUuid());
+    logger.info("Number of Nearby Pokemons: " + request.getNearby_pokemon().size());
 
-    logger.info("Listing Nearby Pokemon: ");
-    request.getNearby_pokemon().forEach(nearbyPokemon -> logger.info(nearbyPokemon.toString()));
-
-    logger.info("Listing Opened Pokemon: ");
+    logger.info("Listing Pokemon at range: ");
     request.getPokemon().forEach(pokemon -> logger.info(pokemon.toString()));
   }
 }

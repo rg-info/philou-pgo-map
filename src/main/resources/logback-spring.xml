@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+  <appender name="WORKER_DATA"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <file>logs/worker-data.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>logs/worker-data.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+      <maxFileSize>${LOG_FILE_MAX_SIZE:-100MB}</maxFileSize>
+      <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="debug" additivity="false">
+    <appender-ref ref="WORKER_DATA" />
+  </logger>
+</configuration>
