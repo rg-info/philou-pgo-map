@@ -6,13 +6,18 @@ import org.junit.Test;
 public class PokemonEnumTest {
 
   @Test
-  public void shouldGetBulbizarreWithCode0() {
-    Assertions.assertThat(PokemonEnum.fromInt(0)).isEqualTo(PokemonEnum.BULBIZARRE);
+  public void shouldGetUnknownFromCodeZero() {
+    Assertions.assertThat(PokemonEnum.fromInt(0)).isEqualTo(PokemonEnum.UNKNOWN);
   }
 
   @Test
-  public void shouldRetreiveStringValueFromIntegerValue() {
-    Assertions.assertThat(PokemonEnum.toString(0)).isEqualTo("Bulbizarre");
+  public void shouldGetEnumFromIntCode() {
+    Assertions.assertThat(PokemonEnum.fromInt(1)).isEqualTo(PokemonEnum.BULBIZARRE);
+  }
+
+  @Test
+  public void shouldRetrieveStringValueFromIntCode() {
+    Assertions.assertThat(PokemonEnum.toString(151)).isEqualTo("Mew");
   }
 
 }

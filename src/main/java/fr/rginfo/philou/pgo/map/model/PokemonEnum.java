@@ -1,6 +1,7 @@
 package fr.rginfo.philou.pgo.map.model;
 
 public enum PokemonEnum {
+  UNKNOWN,
   BULBIZARRE,
   HERBIZARRE,
   FLORIZARRE,

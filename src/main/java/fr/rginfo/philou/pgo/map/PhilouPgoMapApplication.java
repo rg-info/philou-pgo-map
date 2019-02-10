@@ -17,7 +17,7 @@ public class PhilouPgoMapApplication {
     CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
     filter.setIncludeQueryString(true);
     filter.setIncludePayload(true);
-    filter.setMaxPayloadLength(Integer.MAX_VALUE);
+    filter.setMaxPayloadLength(1000000);
     filter.setIncludeHeaders(false);
     filter.setAfterMessagePrefix("REQUEST DATA : ");
     return filter;
