@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pogoprotos.networking.responses;
+
+option java_package = "pogoprotos.networking.responses";
+//option java_outer_classname = "EncounterResponse";
+
+import "wild_pokemon.proto";
+//import "google/protobuf/any.proto";
+
+message EncounterResponse {
+    reserved 2 to max;
+
+    WildPokemon wild_pokemon = 1;
+
+}

@@ -1,4 +1,4 @@
-package fr.rginfo.philou.pgo.map.model;
+package fr.rginfo.philou.pgo.map.model.json;
 
 public class Pokestop extends Node {
   private String pokestop_id;

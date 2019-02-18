@@ -1,4 +1,4 @@
-package fr.rginfo.philou.pgo.map.model;
+package fr.rginfo.philou.pgo.map.model.json;
 
 import java.math.BigDecimal;
 

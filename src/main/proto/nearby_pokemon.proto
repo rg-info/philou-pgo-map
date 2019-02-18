@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pogoprotos.networking.responses;
+
+option java_package = "pogoprotos.networking.responses";
+//option java_outer_classname = "NearbyPokemon";
+
+
+message NearbyPokemon
+ {
+    reserved 3 to max;
+
+    int32 pokemon_id = 1;
+    int32 distance_in_meters = 2;
+
+ /*
+   string pokemon_id = 1;
+   string distance_in_meters = 2;
+   string encounter_id = 3;
+   string fort_id = 4;
+   string fort_image_url = 5;
+   string pokemon_display = 6;
+  */
+ }

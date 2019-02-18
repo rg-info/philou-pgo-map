@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pogoprotos.networking.responses;
+
+option java_package = "pogoprotos.networking.responses";
+//option java_outer_classname = "GetMapObjectsResponse";
+
+import "map_cell.proto";
+
+message GetMapObjectResponse {
+
+   repeated MapCell map_cells = 1;
+
+   reserved 2 to 4;
+}

@@ -1,4 +1,4 @@
-package fr.rginfo.philou.pgo.map.model;
+package fr.rginfo.philou.pgo.map.model.json;
 
 public abstract class AbstractPokemon extends Node {
   private Integer pokemon_id;

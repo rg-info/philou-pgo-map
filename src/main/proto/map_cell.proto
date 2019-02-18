@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package pogoprotos.networking.responses;
+
+option java_package = "pogoprotos.networking.responses";
+//option java_outer_classname = "MapCell";
+
+import "wild_pokemon.proto";
+import "nearby_pokemon.proto";
+import "google/protobuf/any.proto";
+
+message MapCell {
+  reserved 1 to 8;
+
+  repeated WildPokemon wild_pokemons = 9;
+  repeated google.protobuf.Any catchable_pokemons = 10;
+  repeated NearbyPokemon nearby_pokemons = 11;
+  /*
+  string s2_cell_id = 1;
+  int32 current_timestamp_ms = 2;
+  string forts = 3;
+  string spawn_points = 4;
+  string deleted_objects = 5;
+  string is_truncated_list = 6;
+  string fort_summaries = 7;
+  string decimated_spawn_points = 8;
+  WildPokemon wild_pokemons = 9;
+  string catchable_pokemons = 10;
+  string nearby_pokemons = 11;*/
+}

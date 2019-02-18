@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pogoprotos.networking.responses;
+
+option java_package = "pogoprotos.networking.responses";
+//option java_outer_classname = "WildPokemon";
+
+message MapPokemon
+ {
+    reserved 1 to 2,  7;
+
+    int32 pokemon_id = 3;
+    int32 expiration_timestamp_ms = 4;
+    double latitude = 5;
+    double longitude = 6;
+ /*
+   string spawn_point_id = 1;
+   string encounter_id = 2;
+   string pokemon_id = 3;
+   string expiration_timestamp_ms = 4;
+   string latitude = 5;
+   string longitude = 6;
+   string pokemon_display = 7;*/
+ }

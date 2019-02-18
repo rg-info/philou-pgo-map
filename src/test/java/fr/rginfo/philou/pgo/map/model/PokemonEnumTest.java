@@ -1,5 +1,6 @@
 package fr.rginfo.philou.pgo.map.model;
 
+import fr.rginfo.philou.pgo.map.model.json.PokemonEnum;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

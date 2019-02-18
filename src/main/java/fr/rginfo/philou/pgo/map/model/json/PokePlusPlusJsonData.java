@@ -1,9 +1,9 @@
-package fr.rginfo.philou.pgo.map.model;
+package fr.rginfo.philou.pgo.map.model.json;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonGoData {
+public class PokePlusPlusJsonData {
   private String uuid;
   private String validation1;
   private Double timestamp;
