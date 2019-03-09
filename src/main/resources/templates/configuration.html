@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Philou-pgo-map Configuration</title>
+
+  <link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<main role="main" class="container">
+  <div class="py-5 text-center">
+    <h2>Philou Pokemon Go Configuration</h2>
+    <p class="lead">Configuration page for webhook and order services</p>
+  </div>
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2">Alert Configuration</h6>
+    <form action="#" th:action="@{/save-alert}" th:object="${alert}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="text" th:field="*{email}" class="form-control" id="email"
+               placeholder="Enter your email address" />
+      </div>
+      <div class="form-group">
+        <label for="minIv">Minimum IV for alert (Integer)</label>
+        <input type="text" th:field="*{minIv}" class="form-control" id="minIv"
+               placeholder="Enter your IV rate for alert" />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

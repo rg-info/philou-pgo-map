@@ -1,10 +1,12 @@
 package fr.rginfo.philou.pgo.map;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import fr.rginfo.philou.pgo.map.alert.AlertService;
 import fr.rginfo.philou.pgo.map.model.json.PokemonEnum;
 import fr.rginfo.philou.pgo.map.model.raw.PokePlusPlusRawData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,12 @@ public class PokePlusPlusController {
   private final static String MAP_OBJECT = "GetMapObjects";
   private final static String ENCOUNTER_RESPONSE = "EncounterResponse";
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
+  private final AlertService alertService;
+
+  public PokePlusPlusController(AlertService alertService) {
+    Assert.notNull(alertService, "AlertService can't be null");
+    this.alertService = alertService;
+  }
 
   @PostMapping("webhook")
   public void pokePlusPlusWebhook(@RequestBody PokePlusPlusRawData request) {
@@ -118,6 +126,8 @@ public class PokePlusPlusController {
 
   private void printingWildPokemonsData(WildPokemonOuterClass.WildPokemon wildPokemon) {
     PokemonDataOuterClass.PokemonData pokemonData = wildPokemon.getPokemonData();
-    logger.info("Wild Pokemon found: " + PokemonEnum.toString(pokemonData.getPokemonId()) + ", stats: " + pokemonData.getIndividualAttack() + "-" + pokemonData.getIndividualDefense() + "-" + pokemonData.getIndividualStamina());
+    String message = "Wild Pokemon found: " + PokemonEnum.toString(pokemonData.getPokemonId()) + ", stats: " + pokemonData.getIndividualAttack() + "-" + pokemonData.getIndividualDefense() + "-" + pokemonData.getIndividualStamina();
+    logger.info(message);
+    alertService.managePokemonAlert(wildPokemon);
   }
 }
