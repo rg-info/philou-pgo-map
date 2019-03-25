@@ -3,16 +3,21 @@ package fr.rginfo.philou.pgo.map.alert;
 import fr.rginfo.philou.pgo.map.alert.mail.MailRecipient;
 import fr.rginfo.philou.pgo.map.alert.mail.MailService;
 import fr.rginfo.philou.pgo.map.model.json.PokemonEnum;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import pogoprotos.networking.responses.PokemonDataOuterClass;
 import pogoprotos.networking.responses.WildPokemonOuterClass;
 
+import javax.inject.Inject;
+
+@Service
 public class AlertService {
 
   private final MailService mailService;
 
   private final AlertRepository alertRepository;
 
+  @Inject
   public AlertService(MailService mailService, AlertRepository alertRepository) {
     Assert.notNull(mailService, "MailService can't be null");
     Assert.notNull(mailService, "AlertRepository can't be null");
@@ -23,9 +28,9 @@ public class AlertService {
   public void managePokemonAlert(WildPokemonOuterClass.WildPokemon wildPokemon) {
     Integer iv = getPokemonIv(wildPokemon.getPokemonData());
     alertRepository.findAll().forEach(alertBean -> {
-        if (iv > alertBean.getMinIv()) {
-          mailService.sendMessageToRecipient(new MailRecipient().setEmail(alertBean.getEmail()), this.getMessagePokemon(wildPokemon.getPokemonData()));
-        }
+      if (iv > alertBean.getMinIv()) {
+        mailService.sendMessageToRecipient(new MailRecipient().setEmail(alertBean.getEmail()), this.getMessagePokemon(wildPokemon.getPokemonData()));
+      }
     });
   }
 
