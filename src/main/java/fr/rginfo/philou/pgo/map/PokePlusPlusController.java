@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pogoprotos.networking.responses.*;
 
+import javax.inject.Inject;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class PokePlusPlusController {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   private final AlertService alertService;
 
+  @Inject
   public PokePlusPlusController(AlertService alertService) {
     Assert.notNull(alertService, "AlertService can't be null");
     this.alertService = alertService;
@@ -35,6 +37,11 @@ public class PokePlusPlusController {
     logger.info("Receiving request from uuid: " + request.getUuid());
 
     this.rawDataProtosAnalysis(request.getProtos());
+  }
+
+  @PostMapping("walk_spawnpoint")
+  public void walkSpawnpoint(@RequestBody String request) {
+    logger.info("Receiving request on walk_spawnpoint: " + request);
   }
 
   private void rawDataProtosAnalysis(List<Map<String, String>> protos) {
